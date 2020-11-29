@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		57408B5625701FF900F5A1C7 /* ScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57408B5525701FF900F5A1C7 /* ScrollViewController.swift */; };
 		57AD1020256C27AD002EE811 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57AD101F256C27AD002EE811 /* AppDelegate.swift */; };
 		57AD1022256C27AD002EE811 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57AD1021256C27AD002EE811 /* SceneDelegate.swift */; };
 		57AD1024256C27AD002EE811 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57AD1023256C27AD002EE811 /* MainViewController.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		57408B5525701FF900F5A1C7 /* ScrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewController.swift; sourceTree = "<group>"; };
 		57AD101C256C27AD002EE811 /* NavigationControllerTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NavigationControllerTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57AD101F256C27AD002EE811 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		57AD1021256C27AD002EE811 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 				57AD102A256C27AF002EE811 /* LaunchScreen.storyboard */,
 				57AD102D256C27AF002EE811 /* Info.plist */,
 				57AD1033256EA4EE002EE811 /* ButtonProtocol.swift */,
+				57408B5525701FF900F5A1C7 /* ScrollViewController.swift */,
 			);
 			path = NavigationControllerTest;
 			sourceTree = "<group>";
@@ -143,6 +146,7 @@
 			files = (
 				57AD1024256C27AD002EE811 /* MainViewController.swift in Sources */,
 				57AD1034256EA4EE002EE811 /* ButtonProtocol.swift in Sources */,
+				57408B5625701FF900F5A1C7 /* ScrollViewController.swift in Sources */,
 				57AD1020256C27AD002EE811 /* AppDelegate.swift in Sources */,
 				57AD1022256C27AD002EE811 /* SceneDelegate.swift in Sources */,
 			);

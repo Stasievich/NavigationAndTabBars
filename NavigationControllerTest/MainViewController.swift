@@ -43,7 +43,8 @@ class MainViewController: UIViewController {
     
 
     @objc func navPressed(_ sender: Any){
-        let mvc = SecondaryViewController()
+        //let mvc = SecondaryViewController()
+        let mvc = ScrollViewController()
         navigationController?.present(mvc, animated: true)
     }
     
@@ -81,7 +82,6 @@ class SecondaryViewController: UIViewController {
         let tabBarButtonConfig = ButtonConfigs(textColor: #colorLiteral(red: 0.1007879302, green: 0.05916041881, blue: 0.6460004449, alpha: 1), text: "To TabBar", textFont: .systemFont(ofSize: 20))
         setupButton(button: tabBarButton, config: tabBarButtonConfig)
         tabBarButton.addTarget(self, action: #selector(tabBarButtonPressed(_:)), for: .touchUpInside)
-        
         
     }
     
