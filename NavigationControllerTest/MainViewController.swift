@@ -11,7 +11,6 @@ import UIKit
 class MainViewController: UIViewController {
     
     var navButton = UIButton(type: .custom)
-    var tabBarButton = UIButton()
     
     
     override func viewDidLoad() {
@@ -31,20 +30,6 @@ class MainViewController: UIViewController {
         navButton.addTarget(self, action: #selector(navPressed(_:)), for: .touchUpInside)
         
         
-        view.addSubview(tabBarButton)
-        tabBarButton.translatesAutoresizingMaskIntoConstraints = false
-        
-        view.addConstraints([
-            tabBarButton.widthAnchor.constraint(equalToConstant: 144),
-            tabBarButton.heightAnchor.constraint(equalToConstant: 50),
-            tabBarButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            tabBarButton.centerYAnchor.constraint(equalTo: navButton.bottomAnchor, constant: 70)
-        ])
-        
-        let tabBarButtonConfig = ButtonConfigs(textColor: #colorLiteral(red: 0.1007879302, green: 0.05916041881, blue: 0.6460004449, alpha: 1), text: "To TabBar", textFont: .systemFont(ofSize: 20))
-        setupButton(button: tabBarButton, config: tabBarButtonConfig)
-        tabBarButton.addTarget(self, action: #selector(tabBarButtonPressed(_:)), for: .touchUpInside)
-        
 //        var mvc = SecondaryViewController()
 //        mvc.title = "Red"
 //        navigationController?.pushViewController(mvc, animated: true)
@@ -55,19 +40,51 @@ class MainViewController: UIViewController {
     }
 
     
-    func setupButton(button: UIButton, config: ButtonConfiguration) {
-        button.backgroundColor = .systemIndigo
-        button.setTitle(config.text, for: .normal)
-        button.setTitleColor(config.textColor, for: .normal)
-        button.titleLabel?.font = config.textFont
-        button.isOpaque = true
-    }
+    
 
     @objc func navPressed(_ sender: Any){
-        let mvc = UIViewController()
-        mvc.view.backgroundColor = .red
+        let mvc = SecondaryViewController()
         navigationController?.present(mvc, animated: true)
     }
+    
+    
+
+}
+
+func setupButton(button: UIButton, config: ButtonConfiguration) {
+    button.backgroundColor = .systemIndigo
+    button.setTitle(config.text, for: .normal)
+    button.setTitleColor(config.textColor, for: .normal)
+    button.titleLabel?.font = config.textFont
+    button.isOpaque = true
+}
+
+
+class SecondaryViewController: UIViewController {
+    
+    var tabBarButton = UIButton(type: .custom)
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .systemTeal
+        
+        view.addSubview(tabBarButton)
+        tabBarButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        view.addConstraints([
+            tabBarButton.widthAnchor.constraint(equalToConstant: 144),
+            tabBarButton.heightAnchor.constraint(equalToConstant: 50),
+            tabBarButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            tabBarButton.centerYAnchor.constraint(equalTo: view.topAnchor, constant: 140)
+        ])
+        
+        let tabBarButtonConfig = ButtonConfigs(textColor: #colorLiteral(red: 0.1007879302, green: 0.05916041881, blue: 0.6460004449, alpha: 1), text: "To TabBar", textFont: .systemFont(ofSize: 20))
+        setupButton(button: tabBarButton, config: tabBarButtonConfig)
+        tabBarButton.addTarget(self, action: #selector(tabBarButtonPressed(_:)), for: .touchUpInside)
+        
+        
+    }
+    
     
     @objc func tabBarButtonPressed(_ sender: Any){
         let vc1 = setUpViewController("First", .orange, "umbrella")
@@ -77,8 +94,9 @@ class MainViewController: UIViewController {
         let tabBarController = UITabBarController()
         tabBarController.viewControllers = [vc1, vc2, vc3]
         
-        navigationController?.present(tabBarController, animated: true)
+        self.present(tabBarController, animated: true)
     }
+    
     
     func setUpViewController(_ title: String, _ backgroundColor: UIColor, _ image: String) -> UIViewController {
         let vc = UIViewController()
@@ -87,7 +105,4 @@ class MainViewController: UIViewController {
         vc.tabBarItem.image = UIImage(systemName: image)
         return vc
     }
-
 }
-
-
