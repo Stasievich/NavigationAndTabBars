@@ -15,13 +15,18 @@ protocol ButtonConfiguration {
     var textFont: UIFont { get }
 }
 
-struct ButtonConfigs: ButtonConfiguration {
-    
+struct ButtonConfig: ButtonConfiguration {
     
     var textColor: UIColor
-    
     var text: String
-    
     var textFont: UIFont
     
+}
+
+func setupButton(button: UIButton, config: ButtonConfiguration) {
+    button.backgroundColor = .systemIndigo
+    button.setTitle(config.text, for: .normal)
+    button.setTitleColor(config.textColor, for: .normal)
+    button.titleLabel?.font = config.textFont
+    button.isOpaque = true
 }
