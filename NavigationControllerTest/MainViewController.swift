@@ -13,9 +13,11 @@ class MainViewController: UIViewController {
     var toScrollBarButton = UIButton(type: .custom)
     var toTableViewButton = UIButton(type: .custom)
     var toTabBarButon = UIButton(type: .custom)
+    var toTableViewClasswork = UIButton(type: .custom)
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .white
         
         view.addSubview(toScrollBarButton)
         toScrollBarButton.buttonRelativePosition(top: view, 140)
@@ -36,7 +38,6 @@ class MainViewController: UIViewController {
             let mvc = SecondaryViewController()
             self.navigationController?.present(mvc, animated: true)
         }
-        
         
         view.addSubview(toTableViewButton)
         toTableViewButton.buttonRelativePosition(top: toTabBarButon, 70)

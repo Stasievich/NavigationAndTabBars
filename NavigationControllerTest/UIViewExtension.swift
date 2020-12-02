@@ -28,4 +28,20 @@ extension UIView {
         centerXAnchor.constraint(equalTo: top.centerXAnchor).isActive = true
         topAnchor.constraint(equalTo: top.topAnchor, constant: yPosition).isActive = true
     }
+    
+    func flagConstraints() {
+        guard let view = superview else { return }
+        centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        leftAnchor.constraint(equalTo: view.leftAnchor, constant: 15).isActive = true
+        heightAnchor.constraint(equalToConstant: 46).isActive = true
+        widthAnchor.constraint(equalToConstant: 64).isActive = true
+    }
+    
+    func countryNameConstraints(flagImage: UIView, indent: CGFloat) {
+        guard let view = superview else { return }
+        centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        leftAnchor.constraint(equalTo: flagImage.rightAnchor, constant: indent).isActive = true
+        heightAnchor.constraint(equalToConstant: 40).isActive = true
+        widthAnchor.constraint(equalToConstant: 200).isActive = true
+    }
 }
