@@ -24,14 +24,7 @@ class ScrollViewController: UIViewController, UIScrollViewDelegate {
         scrollView.maximumZoomScale = 0.5
         
         scrollView.addSubview(imageView)
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        
-        scrollView.addConstraints([
-            imageView.topAnchor.constraint(equalTo: scrollView.topAnchor),
-            imageView.leftAnchor.constraint(equalTo: scrollView.leftAnchor),
-            imageView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
-            imageView.rightAnchor.constraint(equalTo: scrollView.rightAnchor)
-        ])
+        imageView.fillView(scrollView)
         
         
         return scrollView
@@ -40,16 +33,9 @@ class ScrollViewController: UIViewController, UIScrollViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         scrollView.delegate = self
-        view.addSubview(scrollView)
-        scrollView.translatesAutoresizingMaskIntoConstraints = false
-        
         scrollView.zoomScale = 0.3
-        view.addConstraints([
-            scrollView.topAnchor.constraint(equalTo: view.topAnchor),
-            scrollView.leftAnchor.constraint(equalTo: view.leftAnchor),
-            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            scrollView.rightAnchor.constraint(equalTo: view.rightAnchor)
-        ])
+        view.addSubview(scrollView)
+        scrollView.fillView(view)
         
         view.backgroundColor = .systemTeal
         
