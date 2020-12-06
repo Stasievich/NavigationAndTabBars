@@ -13,6 +13,7 @@
 		57408B5C25740C1E00F5A1C7 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57408B5B25740C1E00F5A1C7 /* UIViewExtension.swift */; };
 		57408B5E2574101900F5A1C7 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57408B5D2574101900F5A1C7 /* UIViewControllerExtension.swift */; };
 		57408B6025741F2500F5A1C7 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57408B5F25741F2500F5A1C7 /* TableViewController.swift */; };
+		57605279257D72D60001008D /* CountryMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57605278257D72D60001008D /* CountryMapViewController.swift */; };
 		57AD1020256C27AD002EE811 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57AD101F256C27AD002EE811 /* AppDelegate.swift */; };
 		57AD1022256C27AD002EE811 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57AD1021256C27AD002EE811 /* SceneDelegate.swift */; };
 		57AD1024256C27AD002EE811 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57AD1023256C27AD002EE811 /* MainViewController.swift */; };
@@ -20,6 +21,9 @@
 		57AD1029256C27AF002EE811 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57AD1028256C27AF002EE811 /* Assets.xcassets */; };
 		57AD102C256C27AF002EE811 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57AD102A256C27AF002EE811 /* LaunchScreen.storyboard */; };
 		57AD1034256EA4EE002EE811 /* ButtonProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57AD1033256EA4EE002EE811 /* ButtonProtocol.swift */; };
+		57C4E86125796131009911C0 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C4E86025796131009911C0 /* CollectionViewController.swift */; };
+		57C4E864257D2944009911C0 /* CountryProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C4E863257D2944009911C0 /* CountryProfileViewController.swift */; };
+		57C4E867257D2B5F009911C0 /* CountryDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C4E866257D2B5F009911C0 /* CountryDescription.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +33,7 @@
 		57408B5B25740C1E00F5A1C7 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		57408B5D2574101900F5A1C7 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		57408B5F25741F2500F5A1C7 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		57605278257D72D60001008D /* CountryMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryMapViewController.swift; sourceTree = "<group>"; };
 		57AD101C256C27AD002EE811 /* NavigationControllerTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NavigationControllerTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57AD101F256C27AD002EE811 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		57AD1021256C27AD002EE811 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -38,6 +43,9 @@
 		57AD102B256C27AF002EE811 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		57AD102D256C27AF002EE811 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		57AD1033256EA4EE002EE811 /* ButtonProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonProtocol.swift; sourceTree = "<group>"; };
+		57C4E86025796131009911C0 /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
+		57C4E863257D2944009911C0 /* CountryProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryProfileViewController.swift; sourceTree = "<group>"; };
+		57C4E866257D2B5F009911C0 /* CountryDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryDescription.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +92,10 @@
 				57408B5B25740C1E00F5A1C7 /* UIViewExtension.swift */,
 				57408B5D2574101900F5A1C7 /* UIViewControllerExtension.swift */,
 				57408B5F25741F2500F5A1C7 /* TableViewController.swift */,
+				57C4E86025796131009911C0 /* CollectionViewController.swift */,
+				57C4E863257D2944009911C0 /* CountryProfileViewController.swift */,
+				57C4E866257D2B5F009911C0 /* CountryDescription.swift */,
+				57605278257D72D60001008D /* CountryMapViewController.swift */,
 			);
 			path = NavigationControllerTest;
 			sourceTree = "<group>";
@@ -159,16 +171,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57C4E864257D2944009911C0 /* CountryProfileViewController.swift in Sources */,
 				57AD1024256C27AD002EE811 /* MainViewController.swift in Sources */,
 				57408B5A2574090300F5A1C7 /* UIControlExtension.swift in Sources */,
 				57408B5E2574101900F5A1C7 /* UIViewControllerExtension.swift in Sources */,
 				57408B6025741F2500F5A1C7 /* TableViewController.swift in Sources */,
 				57AD1034256EA4EE002EE811 /* ButtonProtocol.swift in Sources */,
 				57408B5625701FF900F5A1C7 /* ScrollViewController.swift in Sources */,
+				57C4E867257D2B5F009911C0 /* CountryDescription.swift in Sources */,
+				57605279257D72D60001008D /* CountryMapViewController.swift in Sources */,
 				57AD1020256C27AD002EE811 /* AppDelegate.swift in Sources */,
 				57AD1022256C27AD002EE811 /* SceneDelegate.swift in Sources */,
 				57408B5C25740C1E00F5A1C7 /* UIViewExtension.swift in Sources */,
 				57408B58257406F100F5A1C7 /* SecondaryViewController.swift in Sources */,
+				57C4E86125796131009911C0 /* CollectionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
