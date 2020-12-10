@@ -12,7 +12,9 @@ import MapKit
 
 class CountryMapViewController: UIViewController {
     
+    var countryName = String()
     var countryCoords = (CLLocationDegrees, CLLocationDegrees)(0,0)
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,16 +23,10 @@ class CountryMapViewController: UIViewController {
         let mapView = MKMapView()
         let location = CLLocation(latitude: countryCoords.0, longitude: countryCoords.1)
         mapView.translatesAutoresizingMaskIntoConstraints = false
-        mapView.centerToLocation(location)
+        mapView.centerToLocation(location, countryName)
         view.addSubview(mapView)
         
-        view.addConstraints([
-            mapView.topAnchor.constraint(equalTo: view.topAnchor),
-            mapView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            mapView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            mapView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
-        ])
-        
+        mapView.fillView(view)
         
     }
     
@@ -39,12 +35,15 @@ class CountryMapViewController: UIViewController {
 private extension MKMapView {
   func centerToLocation(
     _ location: CLLocation,
-    regionRadius: CLLocationDistance = 500000
+    _ countryName: String
   ) {
-    let coordinateRegion = MKCoordinateRegion(
-      center: location.coordinate,
-      latitudinalMeters: regionRadius,
-      longitudinalMeters: regionRadius)
-    setRegion(coordinateRegion, animated: true)
+    if let region = CountryDescription.regionRadius[countryName] {
+        let regionRadius: CLLocationDistance = region
+        let coordinateRegion = MKCoordinateRegion(
+            center: location.coordinate,
+            latitudinalMeters: regionRadius,
+            longitudinalMeters: regionRadius)
+        setRegion(coordinateRegion, animated: true)
+    }
   }
 }

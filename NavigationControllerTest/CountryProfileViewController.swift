@@ -55,7 +55,6 @@ class CountryProfileViewController: UIViewController {
         containerView.addConstraints([
             countryLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 20),
             countryLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 30),
-            //countryLabel.widthAnchor.constraint(equalTo: view.widthAnchor)
         ])
         
         
@@ -95,6 +94,7 @@ class CountryProfileViewController: UIViewController {
             if let countryCoords = CountryDescription.mapCoords[self.countryName] {
                 mvc.countryCoords = countryCoords
             }
+            mvc.countryName = self.countryName
             self.navigationController?.pushViewController(mvc, animated: true)
         }
         

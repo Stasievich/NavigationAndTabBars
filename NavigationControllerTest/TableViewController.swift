@@ -11,21 +11,33 @@ import UIKit
 
 class TableViewController: UITableViewController {
     
-
-    var countries = [["Albania", "Australia", "Belgium", "Denmark"],
-                     ["Germany", "Great Britain", "Greece", "India"],
-                     ["Italy", "Morocco", "France", "Norway"],
-                     ["Portugal", "Spain", "Sweden", "Switzerland"],
-                     ["The Netherlands",  "Turkey", "Ukraine", "USA"]]
-    {
-        didSet {
-            //tableView.reloadData()
+    
+    var countryNames =  [["Albania", "Australia", "Belgium", "Denmark"],
+                         ["France", "Germany", "Greece", "India"],
+                         ["Italy", "Morocco", "Netherlands", "Norway"],
+                         ["Portugal", "Spain", "Sweden", "Switzerland"],
+                         ["Turkey", "Ukraine", "United Kingdom", "USA"]]
+    
+    
+    var countries : [[TableData]] = [[Country]]()
+    
+    
+    fileprivate func fillObjectsWithData(_ arrayOfNames: [[String]], _ objects: inout [[TableData]]) {
+        for i in 0..<arrayOfNames.count {
+            objects.append([TableData]())
+            for j in 0..<arrayOfNames[i].count {
+                let objectName = arrayOfNames[i][j]
+                if let image = UIImage(named: objectName) {
+                    objects[i].append(Country(object: objectName, image: image))
+                }
+            }
         }
     }
     
-    
     init() {
         super.init(style: .insetGrouped)
+        
+        fillObjectsWithData(countryNames, &countries)
     }
     
     required init?(coder: NSCoder) {
@@ -40,8 +52,6 @@ class TableViewController: UITableViewController {
         self.tableView.register(CustomCell.self, forCellReuseIdentifier: "Cell")
         self.tableView.dataSource = self
         self.tableView.rowHeight = 90
-        //self.tableView.isEditing = true
-        
         
     }
     
@@ -59,9 +69,8 @@ class TableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //print("Row selected:\(indexPath.row)")
         let cpvc = CountryProfileViewController()
-        cpvc.countryName = countries[indexPath.section][indexPath.row]
+        cpvc.countryName = countries[indexPath.section][indexPath.row].object
         if let countryDescription = CountryDescription.description[cpvc.countryName] {
             cpvc.countryDescription = countryDescription
         }
@@ -69,11 +78,6 @@ class TableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-//        if indexPath.row % 2 == 0 {
-//            return true
-//        } else {
-//            return false
-//        }
         true
     }
     
@@ -92,8 +96,6 @@ class TableViewController: UITableViewController {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CustomCell
         
-        
-        
         cell.backgroundColor = {
             if indexPath.section % 2 == 1 {
                 return .yellow
@@ -107,10 +109,9 @@ class TableViewController: UITableViewController {
         selectedBackground.backgroundColor = .red
         cell.selectedBackgroundView = selectedBackground
         
-        //cell.countryName.delegate = self
         let country = countries[indexPath.section][indexPath.row]
-        cell.countryName.text = country
-        cell.flagImage.image = UIImage(named: country)
+        cell.countryName.text = country.object
+        cell.flagImage.image = country.image
         
         return cell
     }
@@ -149,8 +150,6 @@ class CustomCell: UITableViewCell {
         
         flagImage.flagConstraints()
         countryName.countryNameConstraints(flagImage: flagImage, indent: 15)
-        
-        
         
     }
     
