@@ -15,6 +15,7 @@ class MainViewController: UIViewController {
     var toTabBarButon = UIButton(type: .custom)
     var toTableViewClasswork = UIButton(type: .custom)
     var toCollection = UIButton(type: .custom)
+    var toGesture = UIButton(type: .custom)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,6 +52,14 @@ class MainViewController: UIViewController {
         setupButton(button: toCollection, config: ButtonConfig(textColor: #colorLiteral(red: 0.1007879302, green: 0.05916041881, blue: 0.6460004449, alpha: 1), text: "To Collection", textFont: .systemFont(ofSize: 20)))
         toCollection.addAction(for: .touchUpInside) { (toCollection) in
             let mvc = CollectionViewController()
+            self.navigationController?.pushViewController(mvc, animated: true)
+        }
+        
+        view.addSubview(toGesture)
+        toGesture.buttonRelativePosition(top: toCollection, 70)
+        setupButton(button: toGesture, config: ButtonConfig(textColor: #colorLiteral(red: 0.1007879302, green: 0.05916041881, blue: 0.6460004449, alpha: 1), text: "To Gesture", textFont: .systemFont(ofSize: 20)))
+        toGesture.addAction(for: .touchUpInside) { (toGesture) in
+            let mvc = GestureViewController()
             self.navigationController?.pushViewController(mvc, animated: true)
         }
         
