@@ -14,6 +14,8 @@ class MainViewController: UIViewController {
     var toTableViewButton = UIButton(type: .custom)
     var toTabBarButon = UIButton(type: .custom)
     var toTableViewClasswork = UIButton(type: .custom)
+    var toCollection = UIButton(type: .custom)
+    var toGesture = UIButton(type: .custom)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +23,6 @@ class MainViewController: UIViewController {
         
         view.addSubview(toScrollBarButton)
         toScrollBarButton.buttonRelativePosition(top: view, 140)
-        
         let toScrollBarButtonConfig = ButtonConfig(textColor: #colorLiteral(red: 0.1007879302, green: 0.05916041881, blue: 0.6460004449, alpha: 1), text: "To ScrollBar", textFont: .systemFont(ofSize: 20))
         setupButton(button: toScrollBarButton, config: toScrollBarButtonConfig)
         toScrollBarButton.addAction(for: .touchUpInside) { (toScrollBarButton) in
@@ -32,7 +33,6 @@ class MainViewController: UIViewController {
         
         view.addSubview(toTabBarButon)
         toTabBarButon.buttonRelativePosition(top: toScrollBarButton, 70)
-
         setupButton(button: toTabBarButon, config: ButtonConfig(textColor: #colorLiteral(red: 0.1007879302, green: 0.05916041881, blue: 0.6460004449, alpha: 1), text: "To TabBar", textFont: .systemFont(ofSize: 20)))
         toTabBarButon.addAction(for: .touchUpInside) { (toTabBarButon) in
             let mvc = SecondaryViewController()
@@ -46,6 +46,23 @@ class MainViewController: UIViewController {
             let mvc = TableViewController()
             self.navigationController?.pushViewController(mvc, animated: true)
         }
+        
+        view.addSubview(toCollection)
+        toCollection.buttonRelativePosition(top: toTableViewButton, 70)
+        setupButton(button: toCollection, config: ButtonConfig(textColor: #colorLiteral(red: 0.1007879302, green: 0.05916041881, blue: 0.6460004449, alpha: 1), text: "To Collection", textFont: .systemFont(ofSize: 20)))
+        toCollection.addAction(for: .touchUpInside) { (toCollection) in
+            let mvc = CollectionViewController()
+            self.navigationController?.pushViewController(mvc, animated: true)
+        }
+        
+        view.addSubview(toGesture)
+        toGesture.buttonRelativePosition(top: toCollection, 70)
+        setupButton(button: toGesture, config: ButtonConfig(textColor: #colorLiteral(red: 0.1007879302, green: 0.05916041881, blue: 0.6460004449, alpha: 1), text: "To Gesture", textFont: .systemFont(ofSize: 20)))
+        toGesture.addAction(for: .touchUpInside) { (toGesture) in
+            let mvc = GestureViewController()
+            self.navigationController?.pushViewController(mvc, animated: true)
+        }
+        
         
         
     }

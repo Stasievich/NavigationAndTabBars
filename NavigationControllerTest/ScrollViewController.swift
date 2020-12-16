@@ -15,17 +15,11 @@ class ScrollViewController: UIViewController, UIScrollViewDelegate {
     lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         
-//        scrollView.contentSize = CGSize(width: 2000, height: 2000)
-        
-//        scrollView.bounces = false
-        //scrollView.indicatorStyle
-        
         scrollView.minimumZoomScale = 0.1
         scrollView.maximumZoomScale = 0.5
         
         scrollView.addSubview(imageView)
         imageView.fillView(scrollView)
-        
         
         return scrollView
     }()
