@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		36FA43D537E8A531BCD22BA8 /* Pods_NavigationControllerTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A9BB06AC96C2C19490B978C /* Pods_NavigationControllerTest.framework */; };
 		57408B5625701FF900F5A1C7 /* ScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57408B5525701FF900F5A1C7 /* ScrollViewController.swift */; };
 		57408B58257406F100F5A1C7 /* SecondaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57408B57257406F100F5A1C7 /* SecondaryViewController.swift */; };
 		57408B5A2574090300F5A1C7 /* UIControlExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57408B592574090300F5A1C7 /* UIControlExtension.swift */; };
@@ -27,9 +28,14 @@
 		57C4E86125796131009911C0 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C4E86025796131009911C0 /* CollectionViewController.swift */; };
 		57C4E864257D2944009911C0 /* CountryProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C4E863257D2944009911C0 /* CountryProfileViewController.swift */; };
 		57C4E867257D2B5F009911C0 /* CountryDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C4E866257D2B5F009911C0 /* CountryDescription.swift */; };
+		57CD333E2587E4C200758B50 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 57CD333D2587E4C200758B50 /* SnapKit */; };
+		57CD3346258A669700758B50 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 57CD3345258A669700758B50 /* Lottie */; };
+		57CD3349258A89BC00758B50 /* growing-plant.json in Resources */ = {isa = PBXBuildFile; fileRef = 57CD3348258A89BC00758B50 /* growing-plant.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0AC0217F4975893095ADDEC7 /* Pods-NavigationControllerTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NavigationControllerTest.release.xcconfig"; path = "Target Support Files/Pods-NavigationControllerTest/Pods-NavigationControllerTest.release.xcconfig"; sourceTree = "<group>"; };
+		4A3392737D5D2BD88DD29580 /* Pods-NavigationControllerTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NavigationControllerTest.debug.xcconfig"; path = "Target Support Files/Pods-NavigationControllerTest/Pods-NavigationControllerTest.debug.xcconfig"; sourceTree = "<group>"; };
 		57408B5525701FF900F5A1C7 /* ScrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewController.swift; sourceTree = "<group>"; };
 		57408B57257406F100F5A1C7 /* SecondaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryViewController.swift; sourceTree = "<group>"; };
 		57408B592574090300F5A1C7 /* UIControlExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIControlExtension.swift; sourceTree = "<group>"; };
@@ -52,6 +58,8 @@
 		57C4E86025796131009911C0 /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		57C4E863257D2944009911C0 /* CountryProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryProfileViewController.swift; sourceTree = "<group>"; };
 		57C4E866257D2B5F009911C0 /* CountryDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryDescription.swift; sourceTree = "<group>"; };
+		57CD3348258A89BC00758B50 /* growing-plant.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "growing-plant.json"; sourceTree = "<group>"; };
+		7A9BB06AC96C2C19490B978C /* Pods_NavigationControllerTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NavigationControllerTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +67,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				36FA43D537E8A531BCD22BA8 /* Pods_NavigationControllerTest.framework in Frameworks */,
+				57CD333E2587E4C200758B50 /* SnapKit in Frameworks */,
+				57CD3346258A669700758B50 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,6 +81,8 @@
 			children = (
 				57AD101E256C27AD002EE811 /* NavigationControllerTest */,
 				57AD101D256C27AD002EE811 /* Products */,
+				84D5B61D576FB7408B19F5E6 /* Pods */,
+				CFFBCB52293E909FFA4A1806 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -84,6 +97,7 @@
 		57AD101E256C27AD002EE811 /* NavigationControllerTest */ = {
 			isa = PBXGroup;
 			children = (
+				57CD3348258A89BC00758B50 /* growing-plant.json */,
 				57AD101F256C27AD002EE811 /* AppDelegate.swift */,
 				57AD1021256C27AD002EE811 /* SceneDelegate.swift */,
 				57AD1023256C27AD002EE811 /* MainViewController.swift */,
@@ -109,6 +123,23 @@
 			path = NavigationControllerTest;
 			sourceTree = "<group>";
 		};
+		84D5B61D576FB7408B19F5E6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4A3392737D5D2BD88DD29580 /* Pods-NavigationControllerTest.debug.xcconfig */,
+				0AC0217F4975893095ADDEC7 /* Pods-NavigationControllerTest.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		CFFBCB52293E909FFA4A1806 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7A9BB06AC96C2C19490B978C /* Pods_NavigationControllerTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -116,15 +147,21 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 57AD1030256C27AF002EE811 /* Build configuration list for PBXNativeTarget "NavigationControllerTest" */;
 			buildPhases = (
+				1D779B5947D04CD48134B7A4 /* [CP] Check Pods Manifest.lock */,
 				57AD1018256C27AD002EE811 /* Sources */,
 				57AD1019256C27AD002EE811 /* Frameworks */,
 				57AD101A256C27AD002EE811 /* Resources */,
+				B7684DB2EA1A6CB6709751E6 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = NavigationControllerTest;
+			packageProductDependencies = (
+				57CD333D2587E4C200758B50 /* SnapKit */,
+				57CD3345258A669700758B50 /* Lottie */,
+			);
 			productName = NavigationControllerTest;
 			productReference = 57AD101C256C27AD002EE811 /* NavigationControllerTest.app */;
 			productType = "com.apple.product-type.application";
@@ -153,6 +190,10 @@
 				Base,
 			);
 			mainGroup = 57AD1013256C27AD002EE811;
+			packageReferences = (
+				57CD333C2587E4C200758B50 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				57CD3344258A669700758B50 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+			);
 			productRefGroup = 57AD101D256C27AD002EE811 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -169,11 +210,54 @@
 			files = (
 				57AD102C256C27AF002EE811 /* LaunchScreen.storyboard in Resources */,
 				57AD1029256C27AF002EE811 /* Assets.xcassets in Resources */,
+				57CD3349258A89BC00758B50 /* growing-plant.json in Resources */,
 				57AD1027256C27AD002EE811 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1D779B5947D04CD48134B7A4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-NavigationControllerTest-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B7684DB2EA1A6CB6709751E6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-NavigationControllerTest/Pods-NavigationControllerTest-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-NavigationControllerTest/Pods-NavigationControllerTest-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-NavigationControllerTest/Pods-NavigationControllerTest-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		57AD1018256C27AD002EE811 /* Sources */ = {
@@ -338,6 +422,7 @@
 		};
 		57AD1031256C27AF002EE811 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4A3392737D5D2BD88DD29580 /* Pods-NavigationControllerTest.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -355,6 +440,7 @@
 		};
 		57AD1032256C27AF002EE811 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0AC0217F4975893095ADDEC7 /* Pods-NavigationControllerTest.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -392,6 +478,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		57CD333C2587E4C200758B50 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.1;
+			};
+		};
+		57CD3344258A669700758B50 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.1.9;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		57CD333D2587E4C200758B50 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 57CD333C2587E4C200758B50 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		57CD3345258A669700758B50 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 57CD3344258A669700758B50 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 57AD1014256C27AD002EE811 /* Project object */;
 }
