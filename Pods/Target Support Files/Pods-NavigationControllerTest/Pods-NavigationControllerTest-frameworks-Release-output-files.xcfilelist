@@ -1,0 +1,2 @@
+${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ColorSlider.framework
+${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Swiftstraints.framework

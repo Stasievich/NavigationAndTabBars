@@ -14,6 +14,18 @@ class GestureViewController: UIViewController {
     var boundsView = UIView()
     var rectangleHeight: CGFloat = 100
     var rectangleWidth: CGFloat = 100
+    var indentX: CGFloat = 0.0
+    var indentY: CGFloat = 0.0
+    var leftBorder: CGFloat = 0.0
+    var rightBorder: CGFloat = 0.0
+    var topBorder: CGFloat = 0.0
+    var bottomBorder: CGFloat = 0.0
+    enum direction {
+        case south
+        case north
+        case west
+        case east
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,9 +42,15 @@ class GestureViewController: UIViewController {
 //        view2.addGestureRecognizer(tap2)
 //        view2.backgroundColor = .systemPink
 //        view2.isUserInteractionEnabled = false
+        indentX = rectangleWidth / 2
+        indentY = rectangleHeight / 2
         
         boundsView = addView(on: view, bottomOffset: -200, topOffset: 200)
         boundsView.backgroundColor = .systemTeal
+        leftBorder = indentX
+        rightBorder = boundsView.bounds.width - indentX
+        topBorder = indentY
+        bottomBorder = boundsView.bounds.height - indentY
         
         let squareView = addSquare(on: boundsView, height: rectangleHeight, width: rectangleWidth)
         squareView.backgroundColor = .systemPink
@@ -42,7 +60,6 @@ class GestureViewController: UIViewController {
         
         let longPress = UILongPressGestureRecognizer(target: self, action: #selector(onLongPress(_:)))
         squareView.addGestureRecognizer(longPress)
-        
         
         
         
@@ -106,20 +123,33 @@ class GestureViewController: UIViewController {
           y: gestureView.center.y + (velocity.y * slideFactor)
         )
 
-        let indentX: CGFloat = rectangleWidth / 2
-        let indentY: CGFloat = rectangleHeight / 2
+        
         
         
         var tempPoint: CGPoint = CGPoint(x: gestureView.center.x, y: gestureView.center.y)
-        var scuffed = true
         var arrPath = [CGPoint]()
-        var direction = abs((boundsView.bounds.width / 2 - indentX) / velocity.x) > abs((boundsView.bounds.height / 2 - indentY) / velocity.y) ? 1 : 0
-//        var velocityXDirection = velocity.x
-//        var velocityYDirection = velocity.y
-//        let leftBorder = indentX
-//        let rightBorder = boundsView.bounds.width - indentX
-//        let topBorder = indentY
-//        let bottomBorder = boundsView.bounds.height - indentY
+        
+        //arrPath.append(twoLinesIntersection(firstLine: (tempPoint, finalPoint)).0)
+        
+        
+        while !((finalPoint.x > indentX) && (finalPoint.x < boundsView.bounds.width - indentX)) &&
+                !((finalPoint.y > indentY) && (finalPoint.y < boundsView.bounds.height - indentY)) {
+
+            let calc = twoLinesIntersection(firstLine: (tempPoint, finalPoint))
+            tempPoint.x = calc.0.x
+            tempPoint.y = calc.0.y
+            
+            arrPath.append(tempPoint)
+            
+            switch calc.1 {
+            case .east: finalPoint.x = finalPoint.x - 2 * (finalPoint.x - arrPath[arrPath.count - 1].x)
+            case .north: finalPoint.y = finalPoint.y - 2 * (finalPoint.y - arrPath[arrPath.count - 1].y)
+            case .west: finalPoint.x = finalPoint.x - 2 * (finalPoint.x - arrPath[arrPath.count - 1].x)
+            case .south: finalPoint.y = finalPoint.y - 2 * (finalPoint.y - arrPath[arrPath.count - 1].y)
+            }
+
+        }
+        
 //
 //        if direction == 1 {
 //            tempPoint.x = velocityXDirection > 0 ? rightBorder : leftBorder
@@ -132,28 +162,28 @@ class GestureViewController: UIViewController {
 //        arrPath.append(tempPoint)
         
         
-        while scuffed {
-            scuffed = false
-            tempPoint.x = min(max(finalPoint.x, indentX), boundsView.bounds.width - indentX)
-            tempPoint.y = min(max(finalPoint.y, indentY), boundsView.bounds.height - indentY)
-            
-            if direction == 1 {
-                if !((finalPoint.x > indentX) && (finalPoint.x < boundsView.bounds.width - indentX)) {
-                    finalPoint.x = -(abs(finalPoint.x) - (boundsView.bounds.width - indentX))
-                    scuffed = true
-                }
-            }
-            else {
-                if !((finalPoint.y > indentY) && (finalPoint.y < boundsView.bounds.height - indentY)) {
-                    finalPoint.y = -(abs(finalPoint.y) - (boundsView.bounds.height - indentY))
-                    scuffed = true
-                }
-            }
-            
-            arrPath.append(tempPoint)
-            
-            
-        }
+//        while scuffed {
+//            scuffed = false
+//            tempPoint.x = min(max(finalPoint.x, indentX), boundsView.bounds.width - indentX)
+//            tempPoint.y = min(max(finalPoint.y, indentY), boundsView.bounds.height - indentY)
+//
+//            if direction == 1 {
+//                if !((finalPoint.x > indentX) && (finalPoint.x < boundsView.bounds.width - indentX)) {
+//                    finalPoint.x = -(abs(finalPoint.x) - (boundsView.bounds.width - indentX))
+//                    scuffed = true
+//                }
+//            }
+//            else {
+//                if !((finalPoint.y > indentY) && (finalPoint.y < boundsView.bounds.height - indentY)) {
+//                    finalPoint.y = -(abs(finalPoint.y) - (boundsView.bounds.height - indentY))
+//                    scuffed = true
+//                }
+//            }
+//
+//            arrPath.append(tempPoint)
+//
+//
+//        }
         
 //        UIView.animate(
 //            withDuration: 1.0,
@@ -172,18 +202,102 @@ class GestureViewController: UIViewController {
     func animate(view: UIView, path: [CGPoint], numberOfTimes: Int ) {
 
         if numberOfTimes == 0 { return }
-        var animationDuration = 1.0
-        if numberOfTimes == path.count {
-            animationDuration = 0.5
-        }
         
-        UIView.animate(withDuration: animationDuration, delay: 0, options: [.curveLinear], animations: {
+        UIView.animate(withDuration: 0.5, delay: 0, options: [.curveLinear], animations: {
             view.center = path[path.count - numberOfTimes]
            }, completion: { finished in
                self.animate(view: view, path: path, numberOfTimes: numberOfTimes - 1)
            })
        }
     
+    func twoLinesIntersection(firstLine: (CGPoint, CGPoint)) -> (CGPoint, direction) {
+        var x: CGFloat = 0
+        var y: CGFloat = 0
+        
+        if firstLine.0.x == firstLine.1.x {
+            
+            x = firstLine.0.x
+            y = topBorder
+            
+            if y > min(firstLine.0.y, firstLine.1.y) && y < max(firstLine.0.y, firstLine.1.y) &&
+                x > min(firstLine.0.x, firstLine.1.x) && x < max(firstLine.0.x, firstLine.1.x) {
+                return (CGPoint(x: x, y: y), .north)
+            }
+            
+            x = firstLine.0.x
+            y = bottomBorder
+            
+            if y > min(firstLine.0.y, firstLine.1.y) && y < max(firstLine.0.y, firstLine.1.y) &&
+                x > min(firstLine.0.x, firstLine.1.x) && x < max(firstLine.0.x, firstLine.1.x) {
+                return (CGPoint(x: x, y: y), .south)
+            }
+            
+        }
+        
+        else if firstLine.0.y == firstLine.1.y {
+            
+            y = firstLine.0.y
+            x = rightBorder
+            
+            if y > min(firstLine.0.y, firstLine.1.y) && y < max(firstLine.0.y, firstLine.1.y) &&
+                x > min(firstLine.0.x, firstLine.1.x) && x < max(firstLine.0.x, firstLine.1.x) {
+                return (CGPoint(x: x, y: y), .east)
+            }
+            
+            
+            y = firstLine.0.y
+            x = leftBorder
+            
+            if y > min(firstLine.0.y, firstLine.1.y) && y < max(firstLine.0.y, firstLine.1.y) &&
+                x > min(firstLine.0.x, firstLine.1.x) && x < max(firstLine.0.x, firstLine.1.x) {
+                return (CGPoint(x: x, y: y), .west)
+            }
+            
+            
+        }
+        
+        else {
+            
+            let m = (firstLine.1.y - firstLine.0.y) / (firstLine.1.x - firstLine.0.x)
+            
+            x = rightBorder
+            y = m * (x - firstLine.0.x) + firstLine.0.y
+            
+            if y > min(firstLine.0.y, firstLine.1.y) && y < max(firstLine.0.y, firstLine.1.y) &&
+                x > min(firstLine.0.x, firstLine.1.x) && x < max(firstLine.0.x, firstLine.1.x) {
+                return (CGPoint(x: x, y: y), .east)
+            }
+            
+            
+            x = leftBorder
+            y = m * (x - firstLine.0.x) + firstLine.0.y
+            
+            if y > min(firstLine.0.y, firstLine.1.y) && y < max(firstLine.0.y, firstLine.1.y) &&
+                x > min(firstLine.0.x, firstLine.1.x) && x < max(firstLine.0.x, firstLine.1.x) {
+                return (CGPoint(x: x, y: y), .west)
+            }
+            
+            
+            y = bottomBorder
+            x = (y - firstLine.0.y) / m + firstLine.0.x
+            
+            if y > min(firstLine.0.y, firstLine.1.y) && y < max(firstLine.0.y, firstLine.1.y) &&
+                x > min(firstLine.0.x, firstLine.1.x) && x < max(firstLine.0.x, firstLine.1.x) {
+                return (CGPoint(x: x, y: y), .south)
+            }
+            
+            
+            y = topBorder
+            x = (y - firstLine.0.y) / m + firstLine.0.x
+            
+            if y > min(firstLine.0.y, firstLine.1.y) && y < max(firstLine.0.y, firstLine.1.y) &&
+                x > min(firstLine.0.x, firstLine.1.x) && x < max(firstLine.0.x, firstLine.1.x) {
+                return (CGPoint(x: x, y: y), .north)
+            }
+            
+        }
+        return (CGPoint(x: 0, y: 0), .east)
+    }
     
     @objc
     func onLongPress(_ gesture: UILongPressGestureRecognizer) {

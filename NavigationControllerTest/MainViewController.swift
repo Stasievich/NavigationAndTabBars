@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Swiftstraints
+import SnapKit
 
 class MainViewController: UIViewController {
     
@@ -20,6 +22,7 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        
         
         view.addSubview(toScrollBarButton)
         toScrollBarButton.buttonRelativePosition(top: view, 140)
@@ -36,7 +39,7 @@ class MainViewController: UIViewController {
         setupButton(button: toTabBarButon, config: ButtonConfig(textColor: #colorLiteral(red: 0.1007879302, green: 0.05916041881, blue: 0.6460004449, alpha: 1), text: "To TabBar", textFont: .systemFont(ofSize: 20)))
         toTabBarButon.addAction(for: .touchUpInside) { (toTabBarButon) in
             let mvc = SecondaryViewController()
-            self.navigationController?.present(mvc, animated: true)
+            self.navigationController?.pushViewController(mvc, animated: true)
         }
         
         view.addSubview(toTableViewButton)

@@ -1,0 +1,20 @@
+PODS:
+  - ColorSlider (4.4)
+  - Swiftstraints (5.0.0)
+
+DEPENDENCIES:
+  - ColorSlider
+  - Swiftstraints
+
+SPEC REPOS:
+  trunk:
+    - ColorSlider
+    - Swiftstraints
+
+SPEC CHECKSUMS:
+  ColorSlider: 9a888e65b871fa1e6a26fadebf4931c949935681
+  Swiftstraints: c684ff20ef5403e1a1e1967e1f30ffc11f353144
+
+PODFILE CHECKSUM: 054c9f9044bf003997563d40b7a3503485ae815c
+
+COCOAPODS: 1.10.0
